@@ -7,8 +7,8 @@ Concepts include:
 * Using .querySelector() with css identifiers to manipulate DOM objects
 * Basic form handling
 * How to generate, display, and edit DOM elements dynamically
-    ** .createElement()
-    ** .setAttribute()
-    ** .appendChild()
-    ** .remove()
+    * .createElement()
+    * .setAttribute()
+    * .appendChild()
+    * .remove()
 * How to save and load Objects to/from local storage
