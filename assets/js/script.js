@@ -19,7 +19,13 @@ var taskFormHandler = function(event) {
 
     var isEdit = formEl.hasAttribute("data-task-id");
     if (isEdit) {
+
+
+    }
+    if (isEdit) {
         var taskId = formEl.getAttribute("data-task-id");
+
+
         completeEditTask(taskNameInput, taskTypeInput, taskId);
         // get task id and call function to complete
     }
@@ -114,9 +120,11 @@ var editTask = function(taskId) {
     document.querySelector("input[name=task-name").value = taskName;
     document.querySelector("select[name='task-type']").value = taskType;
     document.querySelector("#save-task").textContent = "Save Task";
-    formEl.setAttribute("data-task-id", taskId);
 
+    formEl.setAttribute("data-task-id", taskId);
 };
+
+
 
 var completeEditTask = function(taskName, taskType, taskId) {
     var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
@@ -131,6 +139,15 @@ var completeEditTask = function(taskName, taskType, taskId) {
     };
     saveTasks();
     alert("Task Updated!");
+    formEl.reset();
+    formEl.removeAttribute("data-task-id");
+    document.querySelector("#save-task").textContent = "Add Task";
+
+
+
+    // I need to change the data-task-id in some way (delete? make 0?)
+    // the is
+
 };
 
 var taskButtonHandler = function(event) {
@@ -187,7 +204,6 @@ var loadTasks = function() {
     for (var i=0; i<savedTasks.length; i++) {
         createTaskEl(savedTasks[i]);
         var taskSelected = document.querySelector(".task-item[data-task-id='" + savedTasks[i].id + "']");
-        console.log(taskSelected);
 
         if (savedTasks[i].status === "to do") {
             taskSelected.querySelector("select[name='status-change']").selectedIndex = 0
